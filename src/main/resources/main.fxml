@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lightcontroller.WindowController">
+   <children>
+      <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="50.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <RadioButton fx:id="stateButton" mnemonicParsing="false" selected="true" text="ON">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="stateGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="OFF" toggleGroup="$stateGroup" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="15.0">
+                     <children>
+                        <Label fx:id="brightnessLabel" text="Brightness" />
+                        <Slider fx:id="brightnessSlider" blockIncrement="0.1" majorTickUnit="0.1" max="1.0" min="0.1" minorTickCount="0" snapToTicks="true" value="1.0" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label fx:id="modeLabel" text="Mode">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="modeChoiceBox">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin></ChoiceBox>
+                  <CheckBox fx:id="whiteCheckbox" mnemonicParsing="false" text="White">
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="-5.0" top="-5.0" />
+               </VBox.margin>
+            </Separator>
+            <VBox alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="settingsLabel" text="Settings">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="15.0" top="-3.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TabPane fx:id="settingsPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@tab-pane-style.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Music">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                           <content>
+                              <VBox alignment="CENTER" spacing="15.0">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="Hue Start" />
+                                          <Slider fx:id="musicHueStartSlider" blockIncrement="5.0" majorTickUnit="32.0" max="255.0" minorTickCount="0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="Hue Step" />
+                                          <Slider fx:id="musicHueStepSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="-5.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                      </Tab>
+                        <Tab text="Channel">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                           <content>
+                              <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="Hue" />
+                                          <Slider fx:id="channelHueSlider" blockIncrement="5.0" majorTickUnit="32.0" max="255.0" minorTickCount="0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <Label text="Channel" />
+                                          <Slider fx:id="channelChannelSlider" blockIncrement="1.0" majorTickUnit="1.0" max="6.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab text="Ambient">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Hue" />
+                                    <Slider fx:id="ambientHueSlider" blockIncrement="5.0" majorTickUnit="32.0" max="255.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="10.0" top="12.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab text="Dynamic">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Flow Speed" />
+                                    <Slider fx:id="dynamicFlowSpeedSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="10.0" top="12.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab text="Random">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Speed (not used currently)" />
+                                    <Slider fx:id="randomSpeedSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" right="10.0" top="12.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                    </tabs>
+                     <padding>
+                        <Insets left="-7.0" />
+                     </padding>
+                  </TabPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
